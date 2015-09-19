@@ -20,21 +20,21 @@ public class PostFixEvaluation {
         System.out.print("Postfix Expression : ");
         String exp = scanner.nextLine();
         double answer = evaluateExpression(exp);
-        System.out.printf("\nevaluation is %.2f", answer);
+        System.out.printf("\nevaluation is %.2f\n", answer);
     
     }
     
     public static double  evaluateExpression(String exp){
         double val1, val2;
         Stack<Double> stack = new Stack<Double>();
-        //for(int i = 0; i<=exp.length()-1 ; i++ ){
-        for(int i = exp.length()-1; i>=0 ; i-- ){
+        for(int i = 0; i<=exp.length()-1 ; i++ ){
+        //for(int i = exp.length()-1; i>=0 ; i-- ){
         
             if(exp.charAt(i) >= '0' && exp.charAt(i)<='9')
                 stack.push(Double.parseDouble(Character.toString(exp.charAt(i))));
             else if(isOperator(exp.charAt(i))){
-                val1 = stack.pop();
                 val2 = stack.pop();
+                val1 = stack.pop();
                 double result  = performOperation(exp.charAt(i) ,val1, val2);
                 stack.push(result);
             }
