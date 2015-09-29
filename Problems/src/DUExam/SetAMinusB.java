@@ -44,6 +44,7 @@ public class SetAMinusB {
         
         System.out.printf("Unique set : %s\n", uniqueSet);
         
+        /*
         Iterator<Integer> iter = set1.iterator();
         while(iter.hasNext()){
             if(set2.contains(iter.next()))
@@ -52,7 +53,13 @@ public class SetAMinusB {
         }
         
         System.out.printf("A-B : %s\n", set1);
+        */
         
+        set1.removeAll(set2);
+        
+        System.out.printf("\nAfter using removeAll ");
+        
+        System.out.printf("Set1 : %s\n", set1);
         
     }
     
